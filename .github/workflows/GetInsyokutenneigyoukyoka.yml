@@ -12,8 +12,11 @@ jobs:
         with:
           ref: main
 
-      - name: Copy data
-        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv https://raw.githubusercontent.com/makoragi/dl_od_kumamoto_city/gh-pages/org/Insyokutenneigyoukyoka.csv
+      - name: Copy byouin_list
+        run: curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/byouin_list.xlsx"
+
+      - name: Copy Insyokutenneigyoukyoka
+        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv"
 
       - name: Commit files
         run: |
