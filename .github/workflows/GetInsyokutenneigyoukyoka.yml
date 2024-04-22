@@ -17,6 +17,7 @@ jobs:
 
       - name: Commit files
         run: |
+          git config --local user.useConfigOnly false
           git config --local user.name "Scraping Bot"
           git status | grep modified && git add . && git commit -v -m "[Bot] GitHub Actions - get data at $(date +'%Y-%m-%d')"
       - name: Create Pull Request
