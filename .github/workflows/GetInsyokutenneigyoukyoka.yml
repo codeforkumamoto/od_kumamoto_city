@@ -1,8 +1,10 @@
 name: get insyokutenneigyoukyoka
 
 on:
-  repository_dispatch:
-    types: [get_insyokutenneigyoukyoka]
+  schedule:
+    - cron: '0 10 * * *' # 1日1回 UTCでの10時に
+  # repository_dispatch:
+  #   types: [get_insyokutenneigyoukyoka]
 
 jobs:
   build:
