@@ -13,7 +13,7 @@ jobs:
           ref: main
 
       - name: Copy data
-        run: curl -o data/Insyokutenneigyoukyoka/Insyokutenneigyoukyoka.csv https://raw.githubusercontent.com/makoragi/dl_od_kumamoto_city/gh-pages/org/Insyokutenneigyoukyoka.csv
+        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv https://raw.githubusercontent.com/makoragi/dl_od_kumamoto_city/gh-pages/org/Insyokutenneigyoukyoka.csv
 
       - name: Commit files
         run: |
