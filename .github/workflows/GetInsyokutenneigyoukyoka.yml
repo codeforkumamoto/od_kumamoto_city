@@ -1,0 +1,24 @@
+name: get insyokutenneigyoukyoka
+
+on:
+  repository_dispatch:
+    types: [get_insyokutenneigyoukyoka]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Copy data
+        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv https://raw.githubusercontent.com/makoragi/dl_od_kumamoto_city/gh-pages/org/Insyokutenneigyoukyoka.csv
+
+      - name: Commit files
+        run: |
+          git config --local user.useConfigOnly false
+          git config --local user.name "Scraping Bot"
+          git status | grep modified && git add . && git commit -v -m "[Bot] GitHub Actions - get data at $(date +'%Y-%m-%d')"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
