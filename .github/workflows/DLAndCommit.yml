@@ -22,6 +22,16 @@ jobs:
           curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/byouin_list.xlsx"
           python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
 
+      - name: Copy yakkyoku_list
+        run: |
+          curl -o data/yakkyoku_list/org/yakkyoku_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/yakkyoku_list.xlsx"
+          python script/xls2csv.py data/yakkyoku_list/org/yakkyoku_list.xlsx
+
+      - name: Copy tennpohannbaigyou_list
+        run: |
+          curl -o data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/tennpohannbaigyou_list.xlsx"
+          python script/xls2csv.py data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx
+
       - name: Copy Insyokutenneigyoukyoka
         run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv"
 
