@@ -1,4 +1,4 @@
-name: get insyokutenneigyoukyoka
+name: download and commit
 
 on:
   schedule:
