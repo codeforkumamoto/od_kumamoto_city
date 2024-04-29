@@ -1,10 +1,9 @@
-name: get insyokutenneigyoukyoka
+name: download and commit
 
 on:
   schedule:
     - cron: '0 10 * * *' # 1日1回 UTCでの10時に
-  # repository_dispatch:
-  #   types: [get_insyokutenneigyoukyoka]
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -14,8 +13,14 @@ jobs:
         with:
           ref: main
 
+      - name: Install dependencies
+        run: |
+          pip install pandas openpyxl
+
       - name: Copy byouin_list
-        run: curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/byouin_list.xlsx"
+        run: |
+          curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/byouin_list.xlsx"
+          python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
 
       - name: Copy Insyokutenneigyoukyoka
         run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv"
