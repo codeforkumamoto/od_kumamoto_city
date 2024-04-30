@@ -41,6 +41,7 @@ jobs:
           git config --local user.name "Scraping Bot"
           git config --local user.email "action@github.com"
           git status
-          git add . && git commit -v -m "[Bot] GitHub Actions - get data at $(date +'%Y-%m-%d')"
+          git add .
+          git commit -v -m "[Bot] GitHub Actions - get data at $(date +'%Y-%m-%d')" || echo "No changes to commit"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
