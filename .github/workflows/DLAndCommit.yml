@@ -35,6 +35,11 @@ jobs:
       - name: Copy Insyokutenneigyoukyoka
         run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv"
 
+      - name: Copy ShinnkiInsyokutenneigyoukyoka
+        run: |
+          curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
+          python script/xls2csv.py data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx
+
       - name: Commit files
         run: |
           git config --local user.useConfigOnly false
