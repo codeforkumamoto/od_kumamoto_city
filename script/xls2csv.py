@@ -18,9 +18,10 @@ def convert_first_sheet_to_csv(excel_file_path):
     # 残りのシート
     for sheet in sheet_names[1:]:
         temp_df = pd.read_excel(excel_file_path, sheet_name=sheet, skiprows=1)
-        temp_df.columns = df.columns  # 最初のシートのカラム名を設定
-        print(temp_df[:2])
-        df = pd.concat([df, temp_df], ignore_index=True)
+        if temp_df.shape[1] == df.shape[1]:  # 列数が一致するか確認
+            df = pd.concat([df, temp_df], ignore_index=True)
+        else:
+            print(f"Warning: Sheet '{sheet}' has a different number of columns and will be skipped.")
 
     # DataFrameをCSVファイルとして保存
     df.to_csv(csv_file_path, index=False)
