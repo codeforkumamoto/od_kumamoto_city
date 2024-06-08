@@ -10,12 +10,18 @@ def convert_first_sheet_to_csv(excel_file_path):
     # CSVファイルパスを設定
     csv_file_path = os.path.join(directory, f"{base_name}.csv")
 
-    # Excelの最初のシートを読み込む
-    df = pd.read_excel(excel_file_path)
-    print(df.head())
+    # 全シート名を取得
+    sheet_names = pd.ExcelFile(excel_file_path).sheet_names
+    
+    # Excelの最初のシートを読み込む(見出し含む)
+    df = pd.read_excel(excel_file_path, sheet_name=sheet_names[0])
+    # 残りのシート
+    for sheet in sheet_names[1:]:
+        temp_df = pd.read_excel(excel_file_path, sheet_name=sheet, header=None)
+        df = pd.concat([df, temp_df], ignore_index=True)
 
     # DataFrameをCSVファイルとして保存
-    df.to_csv(csv_file_path, mode='w', index=False)
+    df.to_csv(csv_file_path, index=False)
     print(f"Saved CSV at {csv_file_path}")
 
 if __name__ == "__main__":
