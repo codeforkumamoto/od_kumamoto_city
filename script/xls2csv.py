@@ -12,7 +12,7 @@ def convert_first_sheet_to_csv(excel_file_path):
 
     # Excelの最初のシートを読み込む
     df = pd.read_excel(excel_file_path)
-    df[1:3]
+    print(df.head())
 
     # DataFrameをCSVファイルとして保存
     df.to_csv(csv_file_path, mode='w', index=False)
