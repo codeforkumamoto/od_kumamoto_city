@@ -14,7 +14,7 @@ def convert_first_sheet_to_csv(excel_file_path):
     df = pd.read_excel(excel_file_path)
 
     # DataFrameをCSVファイルとして保存
-    df.to_csv(csv_file_path, index=False)
+    df.to_csv(csv_file_path, mode='w', index=False)
     print(f"Saved CSV at {csv_file_path}")
 
 if __name__ == "__main__":
