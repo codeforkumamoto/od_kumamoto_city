@@ -39,6 +39,7 @@ jobs:
         run: |
           curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
           python script/xls2csv.py data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx
+          head -2 data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.csv
 
       - name: Commit files
         run: |
