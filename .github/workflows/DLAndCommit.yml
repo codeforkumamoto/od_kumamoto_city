@@ -19,25 +19,25 @@ jobs:
 
       - name: Copy byouin_list
         run: |
-          curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/byouin_list.xlsx"
+          curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/byouin_list.xlsx"
           python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
 
       - name: Copy yakkyoku_list
         run: |
-          curl -o data/yakkyoku_list/org/yakkyoku_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/yakkyoku_list.xlsx"
+          curl -o data/yakkyoku_list/org/yakkyoku_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/yakkyoku_list.xlsx"
           python script/xls2csv.py data/yakkyoku_list/org/yakkyoku_list.xlsx
 
       - name: Copy tennpohannbaigyou_list
         run: |
-          curl -o data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx "https://www.city.kumamoto.jp/opendata/pub/tennpohannbaigyou_list.xlsx"
+          curl -o data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/tennpohannbaigyou_list.xlsx"
           python script/xls2csv.py data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx
 
       - name: Copy Insyokutenneigyoukyoka
-        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv"
+        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/dynamic/opendata/pub/Insyokutenneigyoukyoka.csv"
 
       - name: Copy ShinnkiInsyokutenneigyoukyoka
         run: |
-          curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
+          curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
           python script/xls2csv.py data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx
           head -2 data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.csv
 
