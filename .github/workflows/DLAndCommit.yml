@@ -17,28 +17,34 @@ jobs:
         run: |
           pip install pandas openpyxl
 
-      - name: Copy byouin_list
-        run: |
-          curl -o data/byouin_list/org/byouin_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/byouin_list.xlsx"
-          python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
-
+          - name: Copy byouin_list
+          run: |
+            # curl -o data/byouin_list/org/byouin_list.xlsx "https://data.bodik.jp/dataset/a0a05496-625a-488d-81ae-12835cdf05a9/resource/98e797db-1c66-4bdd-8cb1-daff89785a9e/download"
+            # python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
+            curl -o data/byouin_list/byouin_list.csv "https://data.bodik.jp/datastore/dump/98e797db-1c66-4bdd-8cb1-daff89785a9e?bom=True"
+  
       - name: Copy yakkyoku_list
         run: |
-          curl -o data/yakkyoku_list/org/yakkyoku_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/yakkyoku_list.xlsx"
-          python script/xls2csv.py data/yakkyoku_list/org/yakkyoku_list.xlsx
+          # curl -o data/yakkyoku_list/org/yakkyoku_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/yakkyoku_list.xlsx"
+          # python script/xls2csv.py data/yakkyoku_list/org/yakkyoku_list.xlsx
+          curl -o data/yakkyoku_list/yakkyoku_list.csv "https://data.bodik.jp/datastore/dump/9bc3edb2-e9b2-4745-b1a0-cbfae7bc9f05?bom=True"
 
       - name: Copy tennpohannbaigyou_list
         run: |
-          curl -o data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/tennpohannbaigyou_list.xlsx"
-          python script/xls2csv.py data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx
+          # curl -o data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/tennpohannbaigyou_list.xlsx"
+          # python script/xls2csv.py data/tennpohannbaigyou_list/org/tennpohannbaigyou_list.xlsx
+          curl -o data/tennpohannbaigyou_list/tennpohannbaigyou_list.csv "https://data.bodik.jp/datastore/dump/8be44bcd-96c3-4b73-b7c1-3cda40b421f5?bom=True"
 
       - name: Copy Insyokutenneigyoukyoka
-        run: curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/dynamic/opendata/pub/Insyokutenneigyoukyoka.csv"
-
+        run: |
+          # curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://www.city.kumamoto.jp/dynamic/opendata/pub/Insyokutenneigyoukyoka.csv"
+          curl -o data/Insyokutenneigyoukyoka/org/Insyokutenneigyoukyoka.csv "https://data.bodik.jp/dataset/e3b8af43-eb03-40db-9078-5d654c709c2e/resource/a0d078ac-c492-41b8-9acb-f8f2f561742c/download"
+  
       - name: Copy ShinnkiInsyokutenneigyoukyoka
         run: |
-          curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
-          python script/xls2csv.py data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx
+          # curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx "https://www.city.kumamoto.jp/dynamic/opendata/pub/ShinnkiInsyokutenneigyoukyoka.xlsx"
+          # python script/xls2csv.py data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.xlsx
+          curl -o data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.csv "https://data.bodik.jp/datastore/dump/06f5c5a4-0a85-4fbc-80b3-7ea21767c1f6?bom=True"
           head -2 data/Insyokutenneigyoukyoka/org/ShinnkiInsyokutenneigyoukyoka.csv
 
       - name: Commit files
