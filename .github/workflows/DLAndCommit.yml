@@ -17,11 +17,11 @@ jobs:
         run: |
           pip install pandas openpyxl
 
-          - name: Copy byouin_list
-          run: |
-            # curl -o data/byouin_list/org/byouin_list.xlsx "https://data.bodik.jp/dataset/a0a05496-625a-488d-81ae-12835cdf05a9/resource/98e797db-1c66-4bdd-8cb1-daff89785a9e/download"
-            # python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
-            curl -o data/byouin_list/byouin_list.csv "https://data.bodik.jp/datastore/dump/98e797db-1c66-4bdd-8cb1-daff89785a9e?bom=True"
+      - name: Copy byouin_list
+        run: |
+          # curl -o data/byouin_list/org/byouin_list.xlsx "https://data.bodik.jp/dataset/a0a05496-625a-488d-81ae-12835cdf05a9/resource/98e797db-1c66-4bdd-8cb1-daff89785a9e/download"
+          # python script/xls2csv.py data/byouin_list/org/byouin_list.xlsx
+          curl -o data/byouin_list/byouin_list.csv "https://data.bodik.jp/datastore/dump/98e797db-1c66-4bdd-8cb1-daff89785a9e?bom=True"
   
       - name: Copy yakkyoku_list
         run: |
